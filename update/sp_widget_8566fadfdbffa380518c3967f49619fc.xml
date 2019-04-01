@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+
+	c.$onInit = function(){
+			$scope.$on('incidentClicked',itemClicked);
+	}
+	function itemClicked(event,p){
+		alert(' Update the list to show '+p )
+		console.log(event,p)
+		c.server.get({priority:p}).then(function(response){
+			c.data.listItems = response.data.listItems;
+						
+		})
+		
+	}
+
+	
+	
+
+
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>summary_details_incidents</id>
+        <internal>false</internal>
+        <link/>
+        <name>Summary Details Incidents</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	if (input) {
+
+		if (input.priority) {
+			//data.listItems =[];
+			var gr = new GlideRecord('incident');
+			gr.addQuery('priority', input.priority );
+			gr.addQuery('state', 2)
+			//gr.setLimit(1);
+			gr.query();
+			data.listItems = [];
+			while(gr.next()){
+				data.listItems.push({
+					short_description:gr.short_description.getDisplayValue(),
+					assigned_to:gr.assigned_to.getDisplayValue(),
+					priority:gr.priority.getDisplayValue(),
+					category:gr.category.getDisplayValue(),
+					req_number:gr.number.getDisplayValue(),
+					created:gr.sys_created_on.getDisplayValue(),
+					state:gr.state.getDisplayValue(),
+					sys_id: gr.sys_id.toString()
+				})
+			}
+			return;
+
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>claudita</sys_created_by>
+        <sys_created_on>2019-02-28 20:08:44</sys_created_on>
+        <sys_id>8566fadfdbffa380518c3967f49619fc</sys_id>
+        <sys_mod_count>180</sys_mod_count>
+        <sys_name>Summary Details Incidents</sys_name>
+        <sys_package display_value="Eash Dashboard" source="x_snc_eash_dashboa">aacb1e83db7f6380518c3967f4961915</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Eash Dashboard">aacb1e83db7f6380518c3967f4961915</sys_scope>
+        <sys_update_name>sp_widget_8566fadfdbffa380518c3967f49619fc</sys_update_name>
+        <sys_updated_by>claudita</sys_updated_by>
+        <sys_updated_on>2019-03-01 23:13:53</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default b" ng-repeat="item in c.data.listItems">
+  <div class="panel-heading">
+    <h4 class="panel-title">nn Major Incident</h4>
+    <p>
+      mmmm{{item.req_number}}
+    </p>
+  </div>
+  <div class="panel-body" >
+    <h4>
+      <p ng-click="c.passIncidentsSysID(1)">
+          {{item.short_description}}
+      </p>
+    </h4>
+    <div>  
+      <span>Created: {{item.created}}</span>
+      <span>Assignted to: {{item.assigned_to}}</span>
+      <span>Priority: {{item.priority}}</span>
+      <span>Category: {{item.category}}</span>
+      <span>State: {{item.state}}</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="P1 Incidents Score" max_length="40" name="x_snc_eash_dashboa_p1_incidents_score" type="collection">
+        <element label="P1 score" max_length="40" name="p1_score" type="string"/>
+    </element>
+</database>

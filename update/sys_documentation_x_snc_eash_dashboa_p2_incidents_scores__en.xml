@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="" label="P2 Incidents Score" language="en" table="x_snc_eash_dashboa_p2_incidents_scores">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element/>
+            <help/>
+            <hint/>
+            <label>P2 Incidents Score</label>
+            <language>en</language>
+            <name>x_snc_eash_dashboa_p2_incidents_scores</name>
+            <plural>P2 Incidents Scores</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>claudita</sys_created_by>
+            <sys_created_on>2019-02-28 17:57:42</sys_created_on>
+            <sys_id>2d685a53db7fa380518c3967f49619ac</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>P2 Incidents Score</sys_name>
+            <sys_package display_value="Eash Dashboard" source="x_snc_eash_dashboa">aacb1e83db7f6380518c3967f4961915</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Eash Dashboard">aacb1e83db7f6380518c3967f4961915</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_eash_dashboa_p2_incidents_scores__en</sys_update_name>
+            <sys_updated_by>claudita</sys_updated_by>
+            <sys_updated_on>2019-02-28 18:01:08</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
